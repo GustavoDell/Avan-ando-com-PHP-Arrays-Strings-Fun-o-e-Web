@@ -20,11 +20,16 @@ $contasCorrentes = [
 ];
 
 $contasCorrentes['123.456.789-10'] = sacar($contasCorrentes['123.456.789-10'], 500);
-$contasCorrentes['123.456.789-11'] = sacar($contasCorrentes['123.456.789-11'], 200);
 
+$contasCorrentes['123.456.789-11'] = sacar($contasCorrentes['123.456.789-11'], 200);
 
 $contasCorrentes['123.256.789-10'] = depositar($contasCorrentes['123.256.789-10'], -300);
 
+unset($contasCorrentes['123.456.789-11']);//A função unset() remove variaveis dá memoria
+
+titularComLetrasMaiusculas($contasCorrentes['123.456.789-10']);
+
 foreach ($contasCorrentes as $cpf => $conta) {
-    exibeMensagem("$cpf {$conta['titular']}  {$conta['saldo']}");//interpolação de strings
+  ['titular' => $titular, 'saldo' => $saldo] = $conta;//igual usar a função list()
+  exibeMensagem("$cpf $titular $saldo");//interpolação de strings
 }
