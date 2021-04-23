@@ -23,7 +23,7 @@ function depositar(array $conta, float $valorADepositar) : array /*informando o 
 function exibeMensagem(string $mensagem) 
 {
     
-    echo $mensagem . PHP_EOL;
+    echo $mensagem . '</br>';
 }
 
 function titularComLetrasMaiusculas(array &$conta)/* & serve para informar a referencia 
@@ -37,6 +37,11 @@ function titularComLetrasMaiusculas(array &$conta)/* & serve para informar a ref
                                                           letras maiusculas, porem é preciso 
                                                           que sejá abilitado no arquivo php.ini
                                                         */
-    echo $conta['titular'] . PHP_EOL;
+    //echo $conta['titular'] . PHP_EOL;
     // $conta['titular'] = strtoupper($conta['titular']);// já á strtoupper já vem nativa no php;
+}
+
+function exibeConta(array $conta){
+    list('titular' => $titular, 'saldo' => $saldo) = $conta;
+    echo "<li>Titular: $titular. Saldo: $saldo </li>";
 }
